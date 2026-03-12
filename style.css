@@ -1,4 +1,4 @@
-/* Estilos globais */
+/* ==================== RESET & GLOBAIS ==================== */
 * {
   padding: 0;
   margin: 0;
@@ -12,6 +12,8 @@
 :root {
   font-size: 62.5%;
 
+  --color-destaque: #544a3e;
+  --personalizada-color: #b9a68f;
   --bg-color: #000000;
   --second-bg-color: #C94C16;
   --text-color: #ffffff;
@@ -23,38 +25,41 @@
 
   --highlight-color: rgba(255, 255, 255, 0.2);
   --switch-bg-url: url("./img/moon-star.svg");
-  
+
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.1);
   --surface-color-hover: rgba(3, 0, 0, 0.308);
-  
+
   --bg-image-home: url("./img/bg-home-dark-3.jpg");
   --position-bg-home: 15rem -7rem;
   --logo-github: url("./img/logo-github-white.svg");
   --logo-github-hover: url("./img/logo-github-orange.svg");
   --logo-linkedin: url("./img/logo-linkedin-white.svg");
   --logo-linkedin-hover: url("./img/logo-linkedin-orange.svg");
-  
+
   --button-text-color-hover: #FFFFFF;
 
-  --bg-contact: url("./img/bg-contact-dark.png");
+  --bg-contact: url("./img/fundo-contacts-dark.jpg");
   --border-form: none;
   --bg-form: rgba(24, 24, 24, 0.726);
 
   --color-social-media: #FFFFFF;
+
+  /* Altura da navbar */
+  --nav-height: 6rem;
 }
 
 .light {
   --bg-color: #ffffff;
-  --second-bg-color: #C94C16;
-  
+  --principal-color: #e4dfdf;
+
   --text-color: #000000;
   --second-text-color: #FF4D00;
   --card-bg-color: hsla(18, 80%, 44%, 1);
 
   --highlight-color: rgba(0, 0, 0, 0.25);
   --switch-bg-url: url("./img/sun.svg");
-  
+
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.1);
   --surface-color-hover: rgba(3, 0, 0, 0.308);
@@ -68,7 +73,7 @@
 
   --button-text-color-hover: #000000;
 
-  --bg-contact: url("./img/bg-contact-white.png");
+  --bg-contact: url("./img/fundo-contacts2-white.jpg");
   --border-form: 2px solid hsla(18, 80%, 44%, 1);
   --bg-form: rgba(255, 255, 255, 0.726);
 
@@ -79,24 +84,24 @@ body {
   background: var(--bg-color);
   color: var(--text-color);
   font-family: var(--first-font);
+  overflow-x: hidden;
 }
 
-/* ------------------- nav ------------------- */
+/* ==================== NAV ==================== */
 nav {
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 10;
-
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   background: var(--bg-color);
-  border-bottom: 1px solid black;
-  padding: 1rem 10rem;
-  opacity: 0.8;
+  border-bottom: 1px solid rgba(84, 74, 62, 0.3);
+  padding: 1.5rem 10rem;
+  height: var(--nav-height);
+  opacity: 0.95;
   transition: all .45s ease;
 }
 
@@ -115,15 +120,15 @@ nav {
 }
 
 .navlist a:hover {
-  color: var(--second-text-color);
+  color: var(--personalizada-color);
 }
 
 .navlist a.active {
-  color: var(--second-text-color);
+  color: var(--personalizada-color);
   font-weight: bolder;
 }
 
-/* switch */
+/* ==================== SWITCH ==================== */
 #switch {
   position: relative;
   width: 4rem;
@@ -137,23 +142,20 @@ nav {
   top: 50%;
   left: 0;
   cursor: pointer;
-  
   width: 2.5rem;
   height: 2.5rem;
   background: white;
-  border: 0;
+  border: 1px var(--highlight-color) solid;
   border-radius: 50%;
   background-image: var(--switch-bg-url);
   background-repeat: no-repeat;
   background-position: center;
   transition: all 0.3s;
-  
   animation: slide-back 0.4s;
-  border: 1px var(--highlight-color) solid;
 }
 
 #switch button:hover {
-  outline: 0.5rem solid var(--highlight-color);
+  outline: 0.5rem solid var(--color-destaque);
 }
 
 .light #switch button {
@@ -164,22 +166,24 @@ nav {
   display: block;
   width: 4rem;
   height: 1.7rem;
-  background: var(--surface-color);
-  border: 1px solid var(--stroke-color);
+  background: var(--color-destaque);
+  border: 1px solid var(--color-destaque);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 624.94rem;
 }
 
-/* Ícones de redes sociais */
+/* ==================== REDES SOCIAIS ==================== */
 .social-network {
   display: flex;
+  align-items: center;
   gap: 2rem;
 }
 
 figure {
   height: 3rem;
   width: 3rem;
+  flex-shrink: 0;
 }
 
 #fig1 {
@@ -206,9 +210,9 @@ figure {
   transform: scale(0.9);
 }
 
-/* ==================== MENU HAMBURGUER ==================== */
+/* ==================== MENU HAMBÚRGUER ==================== */
 #menu-icon {
-  display: none; /* Esconder em telas grandes */
+  display: none;
   font-size: 3.5rem;
   color: var(--text-color);
   cursor: pointer;
@@ -217,31 +221,46 @@ figure {
 }
 
 #menu-icon:hover {
-  color: var(--second-text-color);
+  color: var(--personalizada-color);
 }
 
-/* Estilos das seções */
+/* ==================== SEÇÕES ==================== */
 section {
-  padding: 5rem 10rem 5rem;
+  width: 100%;
+  padding: 8rem 10rem 6rem;
 }
 
+/* ==================== HOME ==================== */
 .home {
-  width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+  /* padding da seção já compensa nav, mas adicionamos extra */
+  padding-top: calc(var(--nav-height) + 5rem);
+  padding-bottom: 5rem;
 }
 
 .home .home-mac {
-  width: 40%;
+  width: 42%;
+  max-width: 55rem;
+  height: auto;
   position: absolute;
-  z-index: -2;
-  right: 5rem;
+  z-index: 0;
+  right: 4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .home-presentation {
-  min-width: 45rem;
+  position: relative;
+  z-index: 1;
+  max-width: 55rem;
+  width: 100%;
 }
 
 .home-presentation p {
@@ -255,16 +274,16 @@ section {
 .home-presentation #name {
   font-weight: 800;
   font-size: 7rem;
-  line-height: 10rem;
   color: var(--text-color);
   letter-spacing: -2px;
-  line-height: 0.8;
+  line-height: 0.85;
+  margin-bottom: 0.5rem;
 }
 
 .home-presentation #last-name {
   font-weight: 300;
-  font-size: 6rem;
-  line-height: 0.8;
+  font-size: 5.5rem;
+  line-height: 0.85;
   color: var(--text-color);
   letter-spacing: -2px;
   padding-bottom: 1.5rem;
@@ -283,9 +302,9 @@ section {
   font-weight: 700;
   font-size: 2.5rem;
   line-height: 4.2rem;
-  color: var(--second-text-color);
+  color: var(--personalizada-color);
   letter-spacing: 1.5px;
-  padding-bottom: 8rem;
+  padding-bottom: 5rem;
 }
 
 .home-presentation h3 span strong {
@@ -304,58 +323,69 @@ section {
 }
 
 .button {
-  max-width: 44rem;
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.project-button, .contact-button {
+.project-button,
+.contact-button {
   font-weight: 400;
   font-size: 1.8rem;
   line-height: 3rem;
-  padding: 0.5rem 6rem;
+  padding: 0.8rem 4.5rem;
   border: 2px solid var(--text-color);
   border-radius: 3rem;
   color: var(--text-color);
   letter-spacing: 1px;
   transition: all .45s ease;
+  white-space: nowrap;
 }
 
-.project-button:hover, .contact-button:hover {
+.project-button:hover,
+.contact-button:hover {
   transform: scale(0.9);
-  color: var(--second-text-color);
-  border: 2px solid var(--second-text-color);
+  color: var(--color-destaque);
+  border: 2px solid var(--color-destaque);
 }
 
-/* ---------------- About ----------------------- */
+/* ==================== ABOUT ==================== */
 .about {
   position: relative;
   display: flex;
+  flex-direction: row;
   gap: 5rem;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100vh;
-  margin: 0;
+  /* Removido height: 100vh — causa overflow em mobile */
+  min-height: auto;
+  padding-top: calc(var(--nav-height) + 5rem);
+  padding-bottom: 6rem;
 
-  /* Novas propriedades para a animação */
-  opacity: 0; /* Inicialmente invisível */
-  transform: translateX(100%); /* Começa fora da tela, à direita */
-  transition: opacity 1s ease, transform 1s ease; /* Transição suave */
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .about.visible {
-  opacity: 1; /* Torna visível */
-  transform: translateX(0); /* Move para a posição original */
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .about-img {
+  flex-shrink: 0;
   transition: all .45s ease;
 }
 
 .about-img img {
-  max-width: 45rem;
+  width: 100%;
+  max-width: 40rem;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .about-img:hover {
@@ -365,16 +395,13 @@ section {
 
 .about-text {
   max-width: 55rem;
-  transition: all .45s ease;
+  flex: 1;
 }
 
 .about-text h2 {
-  font-size: var(--h2-font);
-  line-height: 1;
-  font-weight: normal;
-  padding-bottom: 3rem;
-  color: var(--second-text-color);
   font-weight: 400;
+  padding-bottom: 3rem;
+  color: var(--personalizada-color);
   font-size: 5.5rem;
   line-height: 6.6rem;
 }
@@ -382,18 +409,17 @@ section {
 .about-text h2 span {
   padding-top: 10px;
   color: var(--text-color);
-  border-top: 2px solid var(--second-text-color);
+  border-top: 2px solid var(--personalizada-color);
 }
 
 .about-text p {
   color: var(--text-color);
-  font-size: var(--p-font);
   margin-bottom: 2rem;
   word-spacing: 1px;
   text-align: justify;
   font-weight: 400;
   font-size: 1.8rem;
-  line-height: 2.2rem;
+  line-height: 2.6rem;
 }
 
 .button-cv {
@@ -409,8 +435,8 @@ section {
   font-size: 2rem;
   line-height: 2.2rem;
   background: transparent;
-  border: 1px solid var(--second-bg-color);
-  color: var(--second-text-color);
+  border: 1px solid var(--color-destaque);
+  color: var(--color-destaque);
   padding: 1rem 2.5rem;
   border-radius: 0.8rem;
   transition: all .45s ease;
@@ -421,7 +447,7 @@ section {
 }
 
 .btn-cv:hover {
-  background: var(--second-bg-color);
+  background: var(--personalizada-color);
   border: 1px solid var(--text-color);
   color: var(--button-text-color-hover);
 }
@@ -430,9 +456,10 @@ img.balls {
   position: absolute;
   bottom: -6rem;
   right: 5rem;
+  pointer-events: none;
 }
 
-/* ------------ skills ------------------ */
+/* ==================== SKILLS ==================== */
 .skills {
   display: flex;
   align-items: center;
@@ -442,7 +469,7 @@ img.balls {
 }
 
 .line {
-  border: 2px #FF4D00 solid;
+  border: 2px #544a3e solid;
   width: 17rem;
   margin-bottom: 1rem;
 }
@@ -479,7 +506,7 @@ img.balls {
 
 .card {
   padding: 3rem;
-  background: var(--card-bg-color);
+  background: var(--personalizada-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -498,21 +525,23 @@ img.balls {
 
 .card:hover {
   cursor: pointer;
-  background-color: #FF4D00;
+  background-color: #b09d86;
   transform: translateY(-10px);
 }
 
 .card img {
-  width: 7rem;
-  height: 7rem;
+  width: clamp(4rem, 7vw, 7rem);
+  height: clamp(4rem, 7vw, 7rem);
+  object-fit: contain;
 }
 
 .tools .card img {
-  height: 5rem;
-  width: 5rem;
+  width: clamp(3rem, 5vw, 5rem);
+  height: clamp(3rem, 5vw, 5rem);
+  object-fit: contain;
 }
 
-/* ------------ CARROSSEL ------------------ */
+/* ==================== CARROSSEL ==================== */
 .projects {
   background-position: center;
   background-color: var(--bg-color);
@@ -536,7 +565,7 @@ img.balls {
   max-width: 1200px;
   margin: 0 auto;
   overflow: hidden;
-  padding: 0 2rem;
+  padding: 0 4rem;
   width: 100%;
 }
 
@@ -548,14 +577,10 @@ img.balls {
 
 .carousel-slide {
   min-width: 100%;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   padding: 20px 0;
-}
-
-.carousel-slide:not(.active) {
-  display: none;
 }
 
 .carousel-slide.active {
@@ -563,7 +588,7 @@ img.balls {
 }
 
 .row {
-  width: 30%;
+  width: clamp(28rem, 50%, 55rem);
   margin: 0 auto;
   transition: all 0.3s ease;
   position: relative;
@@ -573,6 +598,9 @@ img.balls {
 
 .row img {
   width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
   border-radius: 8px;
   display: block;
   transition: transform 0.5s;
@@ -581,7 +609,7 @@ img.balls {
 .layer {
   width: 100%;
   height: 0;
-  background: linear-gradient(rgba(0,0,0,0.1), var(--second-bg-color));
+  background: linear-gradient(rgba(0, 0, 0, 0.1), var(--personalizada-color));
   position: absolute;
   border-radius: 8px;
   left: 0;
@@ -625,7 +653,7 @@ img.balls {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: var(--card-bg-color);
+  background: var(--personalizada-color);
   border: none;
   color: white;
   font-size: 2rem;
@@ -634,28 +662,28 @@ img.balls {
   border-radius: 50%;
   z-index: 10;
   transition: all 0.3s ease;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-button:hover {
-  background: var(--second-bg-color);
+  background: #e4dfdf;
   transform: translateY(-50%) scale(1.1);
 }
 
 .carousel-button.prev {
-  left: 1rem;
+  left: 0.5rem;
 }
 
 .carousel-button.next {
-  right: 1rem;
+  right: 0.5rem;
 }
 
-/* --------------- contact ----------------------- */
+/* ==================== CONTATO ==================== */
 .contact {
   background-image: var(--bg-contact);
   background-position: center;
@@ -669,10 +697,9 @@ img.balls {
 }
 
 .contact-text h2 {
-  font-size: var(--h2-font);
-  line-height: 1;
   text-align: initial;
-  font-size: 40px;
+  font-size: 4rem;
+  line-height: 1;
 }
 
 .contact-form form {
@@ -701,24 +728,25 @@ form textarea {
 
 .contact-form .submit {
   display: inline-block;
-  background: var(--second-bg-color);
+  background: var(--personalizada-color);
   color: white;
   width: 160px;
   font-weight: 500;
   font-size: 2rem;
-  line-height: 1rem;
+  padding: 1.5rem 1rem;
   margin-bottom: 6rem;
   border: none;
+  border-radius: 8px;
+  cursor: pointer;
   transition: all .45s ease;
 }
 
 .contact-form .submit:hover {
-  background: var(--text-color);
-  color: var(--second-text-color);
-  cursor: pointer;
+  background: #9e8f7d;
+  color: var(--bg-color);
 }
 
-/* Estilos da seção "End" */
+/* ==================== RODAPÉ ==================== */
 .end {
   position: relative;
   padding: 10px 3%;
@@ -742,10 +770,9 @@ form textarea {
 
 .last-text img {
   width: 25px;
-  text-align: center;
 }
 
-/* ==================== BOTÃO DE VOLTAR AO TOPO ==================== */
+/* ==================== BOTÃO TOPO ==================== */
 .top {
   position: fixed;
   bottom: 1rem;
@@ -757,26 +784,26 @@ form textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 5rem; /* Tamanho do botão */
-  height: 5rem; /* Tamanho do botão */
-  background-color: var(--second-bg-color); /* Cor de fundo */
-  border-radius: 50%; /* Formato circular */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--personalizada-color);
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
 
 .top a:hover {
-  background-color: var(--second-text-color); /* Cor de fundo ao passar o mouse */
-  transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+  background-color: var(--principal-color);
+  transform: scale(1.1);
 }
 
 .top i {
-  font-size: 3rem; /* Tamanho do ícone */
-  color: var(--text-color); /* Cor do ícone */
-  font-weight: bold; /* Deixa o ícone mais espesso */
+  font-size: 3rem;
+  color: var(--text-color);
+  font-weight: bold;
 }
 
-/* Mensagem de agradecimento */
+/* ==================== MENSAGEM AGRADECIMENTO ==================== */
 .thank-you-message {
   display: none;
   font-size: 3rem;
@@ -787,158 +814,153 @@ form textarea {
   animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Animações */
+/* ==================== ANIMAÇÕES ==================== */
 @keyframes fadeIn {
   from { opacity: 0; }
-  to { opacity: 1; }
+  to   { opacity: 1; }
 }
 
 @keyframes slide-in {
   from { left: 0; }
-  to { left: 50%; }
+  to   { left: 50%; }
 }
 
 @keyframes slide-back {
   from { left: 50%; }
-  to { left: 0; }
+  to   { left: 0; }
 }
 
-/* Media Queries */
+/* ==================== MEDIA QUERIES ==================== */
+
+/* ---- 1480px ---- */
 @media screen and (max-width: 1480px) {
-  header {
-    padding: 0px 3%;
-    transition: .1s;
-  }
-  header.sticky {
-    padding: 0px 3%;
-    transition: .1s;
+  nav {
+    padding: 1.5rem 5rem;
   }
   section {
-    padding: 110px 8% 100px;
-  }
-  .end {
-    padding: 10px 3%;
-  }
-  .home-text #nome, .home-text #sobre-nome {
-    font-size: 60px;
+    padding: 8rem 6% 6rem;
   }
 }
 
+/* ---- 1180px: layout coluna ---- */
 @media screen and (max-width: 1180px) {
   .home {
     flex-direction: column;
-  }
-  .home .home-mac {
-    width: 100%;
-    position: static;
-    z-index: 1;
-    right: 5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
   }
 
-  .home-mac {
-    width: 50% !important;
-    height: auto;
-    padding-top: 50px;
+  .home .home-mac {
+    position: static;
+    transform: none;
+    width: 55%;
+    max-width: 40rem;
   }
+
+  .home-presentation {
+    max-width: 60rem;
+    width: 100%;
+  }
+
+  .button {
+    justify-content: center;
+  }
+
+  .about {
+    gap: 3rem;
+  }
+
   .about-img img {
-    display: none !important;
+    max-width: 35rem;
   }
+
+  img.balls {
+    display: none;
+  }
+
   .carousel-container {
-    padding: 0 1rem;
+    padding: 0 3rem;
   }
 }
 
-@media (max-width: 920px) {
-  .button {
-    max-width: 44rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 3rem;
-    margin: 0 auto;
+/* ---- 920px ---- */
+@media screen and (max-width: 920px) {
+  nav {
+    padding: 1.5rem 3rem;
   }
-  .button .project-button,
-  .button .contact-button {
-    margin: 0;
-    padding-inline: 7rem;
+
+  section {
+    padding: 7rem 5% 5rem;
   }
+
+  /* About vira coluna: imagem em cima, texto embaixo */
   .about {
-    display: flex;
     flex-direction: column;
-  }
-  .about-img {
+    align-items: center;
     text-align: center;
-    order: 2;
+    gap: 3rem;
   }
-  .about-img img {
-    width: 100%;
-    height: auto;
-    max-width: 80%;
-  }
-  img.balls {
-    display: none !important;
-  }
-  .contact {
-    grid-template-columns: 1fr;
-  }
-  .services-content {
-    display: grid;
-    grid-template-columns: repeat(1, minmax(200px, auto));
-    padding: 10px;
-  }
+
   .about-img {
-    padding-left: 0;
+    order: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
-  .premios img {
-    width: 95%;
-  }
-  .home-text {
+
+  .about-img img {
+    max-width: 32rem;
     width: 70%;
   }
-  .layer, .layer h5, .layer p {
-    width: 84%;
-  }
-  .layer p {
-    line-height: 0.9;
-  }
-  .button a {
-    font-size: 15px;
-    padding: 10px 10px;
-    margin: auto;
-  }
-  .button {
-    padding-bottom: 50px;
-  }
-  .home-text #nome, .home-text #sobre-nome {
-    font-size: 40px;
-  }
-  .home-text h3 {
-    font-size: 30px;
-  }
-  .box h2 {
-    font-size: 20px;
-  }
-  header {
-    width: auto;
-    align-items: initial;
-    left: 0;
+
+  .about-text {
+    order: 2;
+    max-width: 100%;
+    width: 100%;
   }
 
+  .about-text h2 {
+    font-size: 4.5rem;
+    line-height: 5.5rem;
+  }
+
+  .about-text p {
+    text-align: left;
+    font-size: 1.7rem;
+  }
+
+  .button-cv {
+    justify-content: center;
+  }
+
+  img.balls {
+    display: none;
+  }
+
+  .row {
+    width: clamp(24rem, 65%, 50rem);
+  }
 }
 
+/* ---- 840px: menu hambúrguer ---- */
 @media screen and (max-width: 840px) {
   #menu-icon {
-    display: block; /* Mostrar apenas em telas menores */
+    display: block;
   }
+
   #switch {
     margin: 0.5rem 1rem;
   }
+
   nav {
-    padding: 1rem 2rem !important;
+    padding: 1rem 2rem;
   }
+
   .navlist {
     position: fixed;
-    top: -100%; /* Esconder o menu */
+    top: -100%;
     left: 0;
     width: 100%;
     height: 100vh;
@@ -949,7 +971,9 @@ form textarea {
     padding-top: 8rem;
     transition: top 0.5s ease;
     z-index: 1000;
+    gap: 2rem;
   }
+
   .navlist a {
     font-size: 2.5rem;
     padding: 1.5rem;
@@ -957,118 +981,188 @@ form textarea {
     text-align: center;
   }
 
+  .navlist.open {
+    top: 0;
+  }
+
   .social-network {
     margin-left: 0;
-    justify-content: center;
-    margin-top: 2rem;
-  }
-  .navlist a:hover {
-    color: var(--main-color);
-  }
-  .navlist.open {
-    top: 0; /* Mostrar o menu */
+    gap: 1.5rem;
   }
 }
 
+/* ---- 768px ---- */
 @media screen and (max-width: 768px) {
+  section {
+    padding: 7rem 4% 4rem;
+  }
+
+  .home {
+    gap: 2rem;
+  }
+
+  .home .home-mac {
+    width: 72%;
+    max-width: 30rem;
+  }
+
+  .home-presentation #name {
+    font-size: 5.5rem;
+  }
+
+  .home-presentation #last-name {
+    font-size: 4.5rem;
+  }
+
   .techs {
-    display: grid;
     grid-template-rows: repeat(3, 1fr);
     grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
   }
-  .home-mac {
-    width: 70% !important;
-  }
+
   .tools {
-    max-width: 65rem;
-    display: grid;
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
+
   .carousel-button {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     font-size: 1.6rem;
   }
-  .carousel-button.prev {
-    left: 0.5rem;
-  }
-  .carousel-button.next {
-    right: 0.5rem;
-  }
+
   .row {
-    width: 60%;
+    width: clamp(22rem, 75%, 45rem);
   }
 }
 
+/* ---- 612px ---- */
 @media screen and (max-width: 612px) {
-  .home {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+  section {
+    padding: 7rem 4% 4rem;
   }
-  .home-presentation {
-    min-width: 30rem;
+
+  .home-presentation #name {
+    font-size: 4.5rem;
+    margin-bottom: 0.3rem;
   }
+
   .home-presentation p {
     font-size: 1.3rem;
   }
-  .home-presentation #name {
-    font-size: 5rem;
-    margin-bottom: 0.3rem;
-  }
+
   .home-presentation #last-name {
-    font-size: 4rem;
+    font-size: 3.8rem;
   }
+
   .home-presentation h3 p {
     font-size: 1.1rem;
   }
+
   .home-presentation h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+    line-height: 3rem;
+    padding-bottom: 3rem;
   }
+
   .home-presentation h3 span {
-    letter-spacing: 1.5px;
-    color: var(--text-color);
-    font-weight: 400;
-    font-size: 1.2rem;
-    line-height: 32px;
+    font-size: 1.3rem;
   }
-  .button {
-    display: none;
+
+  .home .home-mac {
+    width: 85%;
+    max-width: 28rem;
   }
+
+  .project-button,
+  .contact-button {
+    font-size: 1.6rem;
+    padding: 0.8rem 3rem;
+  }
+
+  .about-img img {
+    max-width: 28rem;
+    width: 80%;
+  }
+
+  .about-text h2 {
+    font-size: 3.8rem;
+    line-height: 4.8rem;
+  }
+
   .techs {
-    display: grid;
     grid-template-rows: repeat(4, 1fr);
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
+
   .carousel-button {
-    width: 25px;
-    height: 25px;
+    width: 28px;
+    height: 28px;
     font-size: 1.4rem;
   }
+
   .row {
-    width: 80%;
+    width: clamp(20rem, 88%, 40rem);
+  }
+
+  .contact-text h2 {
+    font-size: 3rem;
   }
 }
 
+/* ---- 448px ---- */
 @media screen and (max-width: 448px) {
-  .techs {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+  section {
+    padding: 7rem 3% 4rem;
   }
-  .home-mac {
-    width: 100% !important;
-    padding-bottom: 20px;
+
+  .home-presentation #name {
+    font-size: 3.8rem;
   }
-  .carousel-button {
-    width: 25px;
-    height: 25px;
-    font-size: 1.2rem;
-    padding: 0.5rem;
+
+  .home-presentation #last-name {
+    font-size: 3.2rem;
   }
-  .row {
+
+  .home .home-mac {
+    width: 95%;
+    max-width: 26rem;
+  }
+
+  .about-img img {
     width: 90%;
+    max-width: 26rem;
+  }
+
+  .about-text h2 {
+    font-size: 3.2rem;
+    line-height: 4rem;
+  }
+
+  .techs {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.2rem;
+  }
+
+  .tools {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .carousel-button {
+    width: 26px;
+    height: 26px;
+    font-size: 1.2rem;
+    padding: 0.4rem;
+  }
+
+  .row {
+    width: 96%;
+  }
+
+  .contact-form form input,
+  form textarea {
+    font-size: 16px;
   }
 }

@@ -63,7 +63,7 @@ if (savedTheme) {
 // ============= ANIMAÇÃO DO TÍTULO ================
 //Seleciona o elemento do título e define variáveis para a animação
 const titleElement = document.querySelector('#name');
-const text = "Gabrielle Depoli";
+const text = "GABRIELLE DEPOLI";
 let index = 0;
 let isTyping = true;
 let currentColor = document.documentElement.classList.contains('light') ? 'black' : '#fff';
@@ -84,7 +84,7 @@ function animateText () {
         } else {
             isTyping = true; // Alterna para o modo de digitação 
             //Alterna a cor do texto entre branco/preto e laranja 
-            currentColor = currentColor === (document.documentElement.classList.contains('light') ? 'black' : '#fff') ? '#C94C16' : (document.documentElement.classList.contains('light') ? 'black' : '#fff');
+            currentColor = currentColor === (document.documentElement.classList.contains('light') ? 'black' : '#fff') ? '#b9a68f' : (document.documentElement.classList.contains('light') ? 'black' : '#fff');
             titleElement.style.color = currentColor;
         }
     }
@@ -240,10 +240,10 @@ contactForm.addEventListener('submit', (e) => {
 
     // Envia os dados fo formulário usando Fetch API
     const formData = new FormData(contactForm);
-    fetch(contactForm.ariaDescription, {
+    fetch(contactForm.action, {
         method: 'POST',
         body: formData,
-        headers: { 'Accept': 'aplication/json' }
+        headers: { 'Accept': 'application/json' }
     })
     .then(response => {
         if (response.ok) {
