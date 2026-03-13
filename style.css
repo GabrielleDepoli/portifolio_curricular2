@@ -210,6 +210,10 @@ figure {
   transform: scale(0.9);
 }
 
+#fig1, #fig2 {
+  cursor: pointer; /* deixa o ícone clicável */
+}
+
 /* ==================== MENU HAMBÚRGUER ==================== */
 #menu-icon {
   display: none;
@@ -647,6 +651,7 @@ img.balls {
   width: auto;
   height: 100%;
 }
+
 
 /* Botões do carrossel */
 .carousel-button {

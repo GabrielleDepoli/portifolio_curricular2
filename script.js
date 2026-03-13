@@ -158,6 +158,19 @@ const nextButton = document.querySelector('.carousel-button.next');
 let currentSlide = 0;
 let autoSlideInterval;
 
+// Definindo os links de cada slide
+document.querySelectorAll('.carousel-slide .row').forEach((row, index) => {
+  const links = [
+    'https://github.com/GabrielleDepoli/landing_page_expomoto2.git',
+    'https://github.com/GabrielleDepoli/landing_page_senai_ex_revisao2.git',
+    'https://github.com/leilalves/ParqueCirco.git'
+  ];
+  
+  row.addEventListener('click', () => {
+    window.open(links[index], '_blank');
+  });
+});
+
 // Função para exibir o slide atual
 function showSlide(slideIndex) {
     slides.forEach(slide => {
